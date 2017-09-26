@@ -1,0 +1,60 @@
+body {
+    max-height: 5000px;
+}
+
+
+header {
+    max-height: 300px;
+    text-align: center;
+}
+
+header img {
+    width: 40%;
+    height: 100%;
+    align-content: right;
+}
+
+h1 {
+    float: left;
+    font-family: Arvo;
+    font-size: 100;
+    color: black;
+        
+}
+
+.about-container {
+    max-height: 400px;
+}
+
+.tracks-container {
+    max-height: 600px;
+}
+
+.spotify-player {
+    width: 40%;
+    height: 100%;
+    background-color: greenyellow;
+}
+
+.about {
+    width: 60%;
+    height: 100%;
+    background-color: red;
+}
+
+.spotify-player,
+.about {
+    float: left;
+}
+
+
+.top-tracks {
+    height: 100%;
+    background-color: blue;
+}
+
+h2 {
+    font-family: Arvo;
+    font-size:100;
+    text-align: center;
+}
