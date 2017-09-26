@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for
+from flask import Flask,render_template,url_for,request,redirect
 from genius import genius
 
 app=Flask(__name__)
@@ -11,8 +11,16 @@ artistInstas=[]
 artistImgs=[]
 artistDescriptions=[]
 
-@app.route("/")
+#Variable for chosen artist info
+artistName="Your Artist"
+
+@app.route("/",methods=["POST","GET"])
 def index():
+    global artistName
+
+    if request.method=="POST":
+        artistName=request.form["artistName"]
+        return redirect(url_for("artists"))
 
     #Initializes genius to get data from the API
     GeniusCreator=genius()
@@ -27,7 +35,9 @@ def index():
 
 @app.route("/artists")
 def artists():
-    return "Artist info will be here"
+    global artistName
+
+    return render_template("flyer.html",yourArtist=artistName)
 
 
 #Method that appends items to a list since the list will later be used to provide info on a webpage
