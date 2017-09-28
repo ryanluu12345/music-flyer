@@ -23,7 +23,7 @@
             <!-- Spotify Web Player -->
             <div class="spotify-player">
 
-                <iframe src="https://open.spotify.com/embed/artist/0OdUWJ0sBjDrqHygGUXeCF" width="500" height="500" frameborder="0" allowtransparency="true"></iframe>
+                <iframe src="{{artistTopSongs}}" width="500" height="500" frameborder="0" allowtransparency="true"></iframe>
 
             </div>
 
@@ -42,11 +42,13 @@
             {% for key,value in artistSongs.items() %}
 
             <div class="top-songs">
-                <center>
+
                 <h1 style="font-size:20px">Name: {{key}}</h1>
+
+            </div>
                 <br>
+            <div>
                     <iframe src="{{value}}" width="300" height="100" frameborder="0" allowtransparency="true"></iframe>
-                </center>
 
             </div>
 
