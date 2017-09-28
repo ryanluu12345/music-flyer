@@ -47,7 +47,7 @@ class search:
         headers = {"Authorization":"Bearer " + self.accessToken}
         requestArtistInfo = requests.get(searchUrl, headers = headers)
         jsonArtist = requestArtistInfo.json()
-        self.artistEmbed = jsonArtist["external_urls"]["spotify"]
+        self.artistEmbed = self.addEmbedtoUrl(jsonArtist["external_urls"]["spotify"])
         print(self.artistEmbed)
         
     def searchArtistTopTracks(self):
