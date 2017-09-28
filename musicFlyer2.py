@@ -9,6 +9,7 @@ class search:
         self.artistImage = None
         self.artistId = None
         self.songNames = {}
+        self.artistEmbed = None
         
     def getAccessToken(self):
         url = 'https://accounts.spotify.com/api/token'
@@ -40,6 +41,15 @@ class search:
         newUrl = url[0:25]+'embed/'+url[25:]
         return newUrl
 
+
+    def searchArtistEmbed(self):
+        searchUrl = 'https://api.spotify.com/v1/artists/'+self.artistId
+        headers = {"Authorization":"Bearer " + self.accessToken}
+        requestArtistInfo = requests.get(searchUrl, headers = headers)
+        jsonArtist = requestArtistInfo.json()
+        self.artistEmbed = jsonArtist["external_urls"]["spotify"]
+        print(self.artistEmbed)
+        
     def searchArtistTopTracks(self):
         tracksUrl = 'https://api.spotify.com/v1/artists/'+self.artistId+'/top-tracks'
         tracksParams = { 'country': 'US' }
@@ -66,12 +76,16 @@ class search:
     def getGenres(self):
         self.artist
 
+    def getArtistEmbed(self):
+        return self.artistEmbed
+
 if __name__=="__main__":
     searched=search()
     searched.getAccessToken()
     searched.searchArtist("khalid")
     searched.searchArtistTopTracks()
-    print(searched.getArtistImage())
-    print(searched.getArtistId())
-    print(searched.getSongNames())
+    searched.searchArtistEmbed()
+    #print(searched.getArtistImage())
+  #  print(searched.getArtistId())
+   # print(searched.getSongNames())
     
