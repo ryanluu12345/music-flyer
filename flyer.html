@@ -1,53 +1,31 @@
-
+<!DOCTYPE html>
 <html lang = 'en'>
     <head>
         <meta charset="utf-8">
 		<title>Music Flyer</title>
-		<link rel="stylesheet" href="../static/css/flyer.css">
+		<link rel="stylesheet" href="../static/css/main.css">
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
     </head>
-
+    
     <body>
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   <script src="../static/js/main.js"></script>
+        <header>
 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   <script src="../static/js/flyer.js"></script>
+        {% if errorText %}
+        <script type="text/javascript"> alert("Please enter a valid artist name");</script>
 
-        <header style="background-color:antiquewhite;">
-            <img src="{{artistImg}}">
-            <h1>{{yourArtist}}</h1>
-        </header>
-
-
-        <!-- Spotify Web Player and Bio -->
-        <div class="about-container">
-
-            <!-- Spotify Web Player -->
-            <div class="spotify-player"></div>
-
-            <div class="about"></div>
-        </div>
-
-        <!-- Top Tracks -->
-        <div class="tracks-container">
-            <h2>Top Tracks</h2>
-
-            {% if artistSongs %}
-
-            {% for key,value in artistSongs.items() %}
-
-            <div class="top-songs">
-                <center>
-                <h1 style="font-size:20px">Name: {{key}}</h1>
-                <br>
-                    <iframe src="{{value}}" width="300" height="100" frameborder="0" allowtransparency="true"></iframe>
-                </center>
-
-            </div>
-
-            {% endfor %}
             {% endif %}
 
-        </div>
-
+            <h1>Music Flyer</h1>
+        </header>
+        
+        <h2>We'll create a flyer based on your favorite artist</h2>
+        
+        <form method="post">
+            <input type="text" name="artistName" placeholder="Enter an artist" />
+            <input type="submit" />
+        </form>
     </body>
-
+    
 </html>
