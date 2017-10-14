@@ -1,19 +1,31 @@
-
+<!DOCTYPE HTML>
 <html lang = 'en'>
     <head>
         <meta charset="utf-8">
 		<title>Music Flyer</title>
 		<link rel="stylesheet" href="../static/css/flyer.css">
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
 
-    <body>
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   <script src="../static/js/flyer.js"></script>
 
+    <body style="background-color:antiquewhite">
         <header style="background-color:antiquewhite;">
-            <img src="{{artistImg}}">
-            <h1>{{yourArtist}}</h1>
+            <div class="row">
+                <div class="col-8">
+                    <h1 style="font-size:80px;font-family:Arvo"> <strong>{{yourArtist}} </strong> </h1>
+                </div>
+                <div class="col-4">
+                    <img src="{{artistImg}}">
+                </div>
+            </div>
+
         </header>
 
 
@@ -23,39 +35,39 @@
             <!-- Spotify Web Player -->
             <div class="spotify-player">
 
-                <iframe src="{{artistTopSongs}}" width="500" height="500" frameborder="0" allowtransparency="true"></iframe>
+                <iframe src="{{artistTopSongs}}" width="100%" height="500" frameborder="0" allowtransparency="true"></iframe>
 
             </div>
 
-            <div class="about"></div>
+    </div>
 
+    <div class="contact" style="background-color:antiquewhite;margin:0;padding:0">
+        <h2 style="font-size:36px;font-family:Arvo"> Contact Me </h2>
+        <h2 style="font-size:20px;font-family:Arvo"> <a href="{{artistInsta}}"> Instagram </a> <br> </h2>
+        <h2 style="font-size:20px;font-family:Arvo"> <a href="{{artistFb}}"> Facebook </a> <br> </h2>
+    </div>
 
+<!-- Related Artists -->
+        <h2 style="font-size:36px;font-family:Arvo">Related Artists</h2>
 
-        </div>
+            <div class="container">
 
-        <!-- Top Tracks -->
-        <div class="tracks-container">
-            <h2>Top Tracks</h2>
+            <div class="row">
 
-            {% if artistSongs %}
+                {% if relatedArtists %}
 
-            {% for key,value in artistSongs.items() %}
+                {% for artist in relatedArtists %}
+                <div class="col-sm-4">
+                    <a href="{{relatedArtists[artist][0]}}">
+                        <img class="relatedArtist" style="max-width:100%;max-height:100%;border-radius:50%;" src="{{relatedArtists[artist][1]}}">
+                    </a>
+                </div>
 
-            <div class="top-songs">
-
-                <h1 style="font-size:20px">Name: {{key}}</h1>
+                {% endfor %}
+                {% endif %}
+            </div>
 
             </div>
-                <br>
-            <div>
-                    <iframe src="{{value}}" width="300" height="100" frameborder="0" allowtransparency="true"></iframe>
-
-            </div>
-
-            {% endfor %}
-            {% endif %}
-
-        </div>
 
     </body>
 
