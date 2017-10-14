@@ -23,26 +23,27 @@ h1 {
     font-family: Arvo;
     font-size: 100px;
     color: black;
-        
+
 }
 
 .about-container {
     margin: 0;
     padding: 0;
     height: 500px;
+    width: 100%;
 }
 
 .tracks-container {
     margin: 0;
     padding: 0;
     height: 1000px;
-    background-color: blue;
+    background-color: palegoldenrod;
 }
 
 .spotify-player {
     margin: 0;
     padding: 0;
-    width: 40%;
+    width: 100%;
     height: 100%;
     background-color: greenyellow;
 }
@@ -53,6 +54,11 @@ h1 {
     width: 60%;
     height: 100%;
     background-color: red;
+}
+
+.contact{
+
+background-color: antiquewhite;
 }
 
 .spotify-player,
@@ -66,4 +72,9 @@ h2 {
     font-family: Arvo;
     font-size: 100px;
     text-align: center;
+}
+
+.relatedArtist {
+    max-height:100%;
+    max-width: 100%;
 }
