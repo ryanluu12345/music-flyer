@@ -5,3 +5,5 @@ On the front-end, we used HTML5/CSS3 and Javascript. We learned the importance o
 
 On the back-end, we used Flask to handle URL routing, rendering, and injecting variables into the html file for the different artists.
 
+check it out here: http://musicflyer.pythonanywhere.com/
+
